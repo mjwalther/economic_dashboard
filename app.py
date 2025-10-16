@@ -1196,7 +1196,7 @@ def show_population_trend_chart():
     st.markdown("""
     <div style='font-size: 12px; color: #666; font-family: "Avenir", sans-serif;'>
     <strong style='font-family: "Avenir Medium", sans-serif;'>Source: </strong>U.S. Census Bureau, Population Division.<br>
-    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis:</strong> Bay Area Council Economic Institute.<br>
+    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis:</strong> Matthias Jiro Walther.<br>
     </div>
     <br>
     """, unsafe_allow_html=True)
@@ -1734,13 +1734,13 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# --- BACEI Logo ---
-st.sidebar.image("BACEI Logo.png", use_container_width=True)
+# --- GG Bridge Logo ---
+st.sidebar.image("golden_gate_bridge.png", use_container_width=True)
 
 # --- Sidebar dropdown ---
 section = st.sidebar.selectbox(
     "Select Indicator:",
-    ["Employment", "Population", "Housing"],  #, "Investment", "Transit"]
+    ["Employment", "Population", "Housing"],
     key="indicator_section"
 )
 
@@ -1940,7 +1940,7 @@ def show_employment_comparison_chart(df):
     <div style='font-size: 12px; color: #666; font-family: "Avenir", sans-serif;'>
     <strong style='font-family: "Avenir Medium", sans-serif;'>Source: </strong>Local Area Unemployment Statistics (LAUS), California Open Data Portal.<br>
     <strong style='font-family: "Avenir Medium", sans-serif;'>Note: </strong>  LAUS data includes total employment, covering both farm jobs and self-employed. <br>
-    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis:</strong> Bay Area Council Economic Institute.<br>
+    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis:</strong> Matthias Jiro Walther.<br>
     </div>
     """, unsafe_allow_html=True)
 
@@ -2135,7 +2135,7 @@ def show_unemployment_rate_chart(df):
     st.markdown("""
     <div style='font-size: 12px; color: #666; font-family: "Avenir", sans-serif;'>
     <strong style='font-family: "Avenir Medium", sans-serif;'>Source: </strong>Local Area Unemployment Statistics (LAUS), California Open Data Portal.<br>
-    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis:</strong> Bay Area Council Economic Institute.<br>
+    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis:</strong> Matthias Jiro Walther.<br>
     </div>
     """, unsafe_allow_html=True)
 
@@ -2339,7 +2339,7 @@ def show_job_recovery_overall_v2(df_ca, df_bay, df_us, df_sonoma):
     st.markdown("""
     <div style='font-size: 12px; color: #666;'>
     <strong>Source:</strong> Bureau of Labor Statistics (BLS). <strong>Note:</strong> Data are seasonally adjusted.<br>
-    <strong>Analysis:</strong> Bay Area Council Economic Institute.<br>
+    <strong>Analysis:</strong> Matthias Jiro Walther.<br>
     </div>
     """, unsafe_allow_html=True)
     st.markdown("---")
@@ -2481,63 +2481,6 @@ def show_job_recovery_overall(df_state, df_bay, df_us, df_sonoma, df_napa):
             )
         )
 
-        # # SONOMA
-        # fig.add_trace(
-        #     go.Scatter(
-        #         x=df_sonoma["date"],
-        #         y=df_sonoma["pct_change"],
-        #         mode="lines",
-        #         name="Sonoma County",
-        #         line=dict(color="#d84f19"),
-        #         hovertemplate="Sonoma: %{y:.2f}%<extra></extra>"
-        #     )
-        # )
-
-        # latest_son = df_sonoma.iloc[-1]
-        # fig.add_trace(
-        #     go.Scatter(
-        #         x=[latest_son["date"]],
-        #         y=[latest_son["pct_change"]],
-        #         mode="markers+text",
-        #         marker=dict(color="#d84f19", size=10),
-        #         text=[f"{latest_son['pct_change']:.2f}%"],
-        #         textposition="bottom center",
-        #         textfont=dict(size=30, family="Avenir", color="#d84f19"),
-        #         name="Sonoma",
-        #         hoverinfo="skip",
-        #         showlegend=False
-        #     )
-        # )
-
-        # # NAPA
-        # fig.add_trace(
-        #     go.Scatter(
-        #         x=df_napa["date"],
-        #         y=df_napa["pct_change"],
-        #         mode="lines",
-        #         name="Napa County",
-        #         line=dict(color="#00aca2"),
-        #         hovertemplate="Napa: %{y:.2f}%<extra></extra>"
-        #     )
-        # )
-
-        # latest_napa = df_napa.iloc[-1]
-        # fig.add_trace(
-        #     go.Scatter(
-        #         x=[latest_napa["date"]],
-        #         y=[latest_napa["pct_change"]],
-        #         mode="markers+text",
-        #         marker=dict(color="#00aca2", size=10),
-        #         text=[f"{latest_napa['pct_change']:.2f}%"],
-        #         textposition="bottom center",
-        #         textfont=dict(size=30, family="Avenir", color="#00aca2"),
-        #         name="Napa",
-        #         hoverinfo="skip",
-        #         showlegend=False
-        #     )
-        # )
-
-
         latest_date = max(df_state["date"].max(), df_bay["date"].max(), df_us["date"].max(), df_napa["date"].max())
         buffered_latest = latest_date + timedelta(days=50)
 
@@ -2648,7 +2591,7 @@ def show_job_recovery_overall(df_state, df_bay, df_us, df_sonoma, df_napa):
         st.markdown("""
         <div style='font-size: 12px; color: #666;'>
         <strong>Source:</strong> Bureau of Labor Statistics (BLS). <strong>Note:</strong> Data are seasonally adjusted.<br>
-        <strong>Analysis:</strong> Bay Area Council Economic Institute.<br>
+        <strong>Analysis:</strong> Matthias Jiro Walther.<br>
         </div>
         <br>
         """, unsafe_allow_html=True)
@@ -2874,7 +2817,7 @@ def show_job_recovery_by_state(state_code_map, fetch_states_job_data):
         st.markdown("""
         <div style='font-size: 12px; color: #666; font-family: "Avenir", sans-serif;'>
         <strong>Source:</strong> Bureau of Labor Statistics (BLS). <strong>Note:</strong> Data are seasonally adjusted.<br>
-        <strong>Analysis:</strong> Bay Area Council Economic Institute.<br>
+        <strong>Analysis:</strong> Matthias Jiro Walther.<br>
         </div>
         """, unsafe_allow_html=True)
 
@@ -3062,7 +3005,7 @@ def show_monthly_job_change_chart(df, region_name):
     <div style='font-size: 12px; color: #666; font-family: "Avenir", sans-serif;'>
     <strong style='font-family: "Avenir Medium", sans-serif;'>Source: </strong> Bureau of Labor Statistics (BLS).
     <strong style='font-family: "Avenir Medium", sans-serif;'>Note: </strong> Data are seasonally adjusted.<br>
-    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis: </strong> Bay Area Council Economic Institute.<br>
+    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis: </strong> Matthias Jiro Walther.<br>
     <strong style='font-family: "Avenir Medium", sans-serif;'>Regions:</strong> North Bay (Napa MSA, San Rafael MD, Santa Rosa-Petaluma, Vallejo).
                 East Bay (Oakland-Fremont-Berkeley MD). South Bay (San Jose-Sunnyvale-Santa Clara). San Francisco-Peninsula (San Francisco-San Mateo-Redwood City MD).<br>
     </div>
@@ -3300,7 +3243,7 @@ def show_bay_area_monthly_job_change(df_bay):
     <div style='font-size: 12px; color: #666; font-family: "Avenir", sans-serif;'>
     <strong style='font-family: "Avenir Medium", sans-serif;'>Source: </strong> Bureau of Labor Statistics (BLS).
     <strong style='font-family: "Avenir Medium", sans-serif;'>Note: </strong> Data are seasonally adjusted.<br>
-    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis: </strong> Bay Area Council Economic Institute.<br>
+    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis: </strong> Matthias Jiro Walther.<br>
     """, unsafe_allow_html=True)
 
     st.markdown("---")
@@ -3645,7 +3588,7 @@ def show_combined_industry_job_recovery_chart(bay_area_series_mapping, us_series
     <div style='font-size: 12px; color: #666; font-family: "Avenir", sans-serif;'>
     <strong>Source:</strong> Bureau of Labor Statistics (BLS).<br>
     <strong>Note:</strong> "Education" refers to private education, while public education is included under Government. Total Non-Farm Employment data are seasonally adjusted; other industry data are not.<br>
-    <strong>Analysis:</strong> Bay Area Council Economic Institute.<br>
+    <strong>Analysis:</strong> Matthias Jiro Walther.<br>
     </div>
     """, unsafe_allow_html=True)
 
@@ -3977,7 +3920,7 @@ def show_sonoma_combined_industry_job_recovery_chart(sonoma_mapping, us_series_m
     <div style='font-size: 12px; color: #666; font-family: "Avenir", sans-serif;'>
     <strong>Source:</strong> Bureau of Labor Statistics (BLS).<br>
     <strong>Note:</strong> "Education" refers to private education, while public education is included under Government. Total Non-Farm Employment data are seasonally adjusted; other industry data are not.<br>
-    <strong>Analysis:</strong> Bay Area Council Economic Institute.<br>
+    <strong>Analysis:</strong> Matthias Jiro Walther.<br>
     </div>
     """, unsafe_allow_html=True)
 
@@ -4285,7 +4228,7 @@ def show_office_tech_recovery_chart(office_metros_mapping, BLS_API_KEY):
         <div style='font-size: 12px; color: #666; font-family: "Avenir", sans-serif;'>
         <strong>Source:</strong> Bureau of Labor Statistics (BLS).
         <strong>Note:</strong> Data are not seasonally adjusted. Sectors include Information, Financial Activities, and Professional &amp; Business Services.<br>
-        <strong>Analysis:</strong> Bay Area Council Economic Institute.
+        <strong>Analysis:</strong> Matthias Jiro Walther.
         </div>
         """, unsafe_allow_html=True)
     
@@ -4793,7 +4736,7 @@ def show_jobs_ratio_chart():
     <div style='font-size: 12px; color: #666; font-family: "Avenir", sans-serif;'>
     <strong style='font-family: "Avenir Medium", sans-serif;'>Source: </strong> Bureau of Labor Statistics (BLS) and Local Area Unemployment Statistics (LAUS), California Open Data Portal.<br>
     <strong style='font-family: "Avenir Medium", sans-serif;'>Note: </strong> Ratio greater than 1 means more jobs than employed residents in a region.<br>BLS data are seasonally adjusted nonfarm payroll jobs. LAUS data are total employment including farm jobs and self-employed. <br> Each ratio uses the respective year's LAUS data as denominator. Bay Area Total includes all 7 metro divisions/MSAs.<br>
-    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis:</strong> Bay Area Council Economic Institute.<br>
+    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis:</strong> Matthias Jiro Walther.<br>
     </div>
     """, unsafe_allow_html=True)
 
@@ -5067,7 +5010,7 @@ def show_metro_population_change_chart(
     st.markdown("""
     <div style='font-size: 12px; color: #666; font-family: "Avenir", sans-serif;'>
     <strong style='font-family: "Avenir Medium", sans-serif;'>Source: </strong>U.S. Census Bureau (Population and Housing Unit Estimates).<br>
-    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis:</strong> Bay Area Council Economic Institute.<br>
+    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis:</strong> Matthias Jiro Walther.<br>
     </div>
     """, unsafe_allow_html=True)
 
@@ -5268,7 +5211,7 @@ def show_median_1br_rent_change_chart(
     st.markdown("""
     <div style='font-size: 12px; color: #666; font-family: "Avenir", sans-serif;'>
     <strong style='font-family: "Avenir Medium", sans-serif;'>Source: </strong>Apartment List.<br>
-    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis:</strong> Bay Area Council Economic Institute.<br>
+    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis:</strong> Matthias Jiro Walther.<br>
     </div>
     <br>
     """, unsafe_allow_html=True)
@@ -5437,7 +5380,7 @@ def show_avg_housing_permits_chart(
     st.markdown("""
     <div style='font-size: 12px; color: #666; font-family: "Avenir", sans-serif;'>
     <strong style='font-family: "Avenir Medium", sans-serif;'>Source: </strong>U.S. Census Building Permit Survey, U.S. Census Population Estimates Program.<br>
-    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis:</strong> Bay Area Council Economic Institute.<br>
+    <strong style='font-family: "Avenir Medium", sans-serif;'>Analysis:</strong> Matthias Jiro Walther.<br>
     </div>
     <br>
     """, unsafe_allow_html=True)
@@ -5582,4 +5525,4 @@ elif section == "Housing":
 
 
 st.markdown("---")
-st.caption("© Bay Area Council Economic Institute")
+st.caption("© Matthias Jiro Walther")
