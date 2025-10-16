@@ -4,8 +4,7 @@ Data Dashboard on Bay Area's Economy
 
 ## Run Dashboard
 
-https://bacei-dashboard.streamlit.app/
-
+https://economy-dashboard.streamlit.app/
 ---
 
 ## Data Sources
