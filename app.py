@@ -1183,7 +1183,7 @@ def show_population_trend_chart():
 
     st.plotly_chart(
             fig, 
-            use_container_width=True,
+            width=True,
             config={
                 "toImageButtonOptions": {
                     "format": "svg",
@@ -1621,7 +1621,7 @@ def show_data_downloads():
                     df_preview = pd.read_csv(StringIO(csv_text)).head(200)
                 else:
                     df_preview = pd.read_csv(raw_url).head(200)
-                st.dataframe(df_preview, use_container_width=True)
+                st.dataframe(df_preview, width=True)
             except Exception as e:
                 st.info(f"Preview unavailable: {e}")
 
@@ -1735,7 +1735,7 @@ st.markdown(
 )
 
 # --- GG Bridge Logo ---
-st.sidebar.image("golden_gate_bridge.png", use_container_width=True)
+st.sidebar.image("golden_gate_bridge.png", width=200)
 
 # --- Sidebar dropdown ---
 section = st.sidebar.selectbox(
@@ -1772,8 +1772,8 @@ elif section == "Housing":
 
 
 # --- Bottom-of-sidebar "Download Data" button ---
-st.sidebar.markdown("<div style='height:16px'></div>", unsafe_allow_html=True)  # breathing room
-if st.sidebar.button("Download Data", use_container_width=True):
+st.sidebar.markdown("<div style='height:20px'></div>", unsafe_allow_html=True)  # breathing room
+if st.sidebar.button("Download Data"):
     st.query_params["page"] = "downloads"
     st.rerun()
 
@@ -1927,7 +1927,7 @@ def show_employment_comparison_chart(df):
 
     st.plotly_chart(
             fig, 
-            use_container_width=True,
+            width=True,
             config={
                 "toImageButtonOptions": {
                     "format": "svg",
@@ -1986,7 +1986,7 @@ def show_employment_comparison_chart(df):
             return 'color: #d84f19'
 
     styled_df = display_df.style.map(color_pct_change, subset=['Percent Change'])
-    st.dataframe(styled_df, use_container_width=True, hide_index=True)
+    st.dataframe(styled_df, width=True, hide_index=True)
 
 
 def show_unemployment_rate_chart(df):
@@ -2122,7 +2122,7 @@ def show_unemployment_rate_chart(df):
 
     st.plotly_chart(
             fig, 
-            use_container_width=True,
+            width=True,
             config={
                 "toImageButtonOptions": {
                     "format": "svg",
@@ -2178,7 +2178,7 @@ def show_unemployment_rate_chart(df):
     
     st.dataframe(
         summary_df,
-        use_container_width=True,
+        width=True,
         hide_index=True,
         column_config={
             'County': st.column_config.TextColumn('Region', width='medium'),
@@ -2332,7 +2332,7 @@ def show_job_recovery_overall_v2(df_ca, df_bay, df_us, df_sonoma):
 
     st.plotly_chart(
         fig,
-        use_container_width=True,
+        width=True,
         config={"toImageButtonOptions": {"format": "svg", "filename": "job_recovery", "scale": 10}}
     )
 
@@ -2579,7 +2579,7 @@ def show_job_recovery_overall(df_state, df_bay, df_us, df_sonoma, df_napa):
 
         st.plotly_chart(
             fig, 
-            use_container_width=True,
+            width=True,
             config={
                 "toImageButtonOptions": {
                     "format": "svg",
@@ -2805,7 +2805,7 @@ def show_job_recovery_by_state(state_code_map, fetch_states_job_data):
 
         st.plotly_chart(
             fig_states, 
-            use_container_width=True,
+            width=True,
             config={
                 "toImageButtonOptions": {
                     "format": "svg",
@@ -2992,7 +2992,7 @@ def show_monthly_job_change_chart(df, region_name):
 
     st.plotly_chart(
             fig, 
-            use_container_width=True,
+            width=True,
             config={
                 "toImageButtonOptions": {
                     "format": "svg",
@@ -3062,7 +3062,7 @@ def create_job_change_summary_table(df):
         ]
     })
     
-    st.dataframe(summary_stats, use_container_width=True, hide_index=True)
+    st.dataframe(summary_stats, width=True, hide_index=True)
 
 
 def show_bay_area_monthly_job_change(df_bay):
@@ -3229,7 +3229,7 @@ def show_bay_area_monthly_job_change(df_bay):
 
     st.plotly_chart(
         fig,
-        use_container_width=True,
+        width=True,
         config={
             "toImageButtonOptions": {
                 "format": "svg",
@@ -3280,7 +3280,7 @@ def show_bay_area_monthly_job_change(df_bay):
         ]
     })
     
-    st.dataframe(summary_stats, use_container_width=True, hide_index=True)
+    st.dataframe(summary_stats, width=True, hide_index=True)
 
 def show_combined_industry_job_recovery_chart(bay_area_series_mapping, us_series_mapping, BLS_API_KEY):
     """
@@ -3574,7 +3574,7 @@ def show_combined_industry_job_recovery_chart(bay_area_series_mapping, us_series
 
     st.plotly_chart(
         fig,
-        use_container_width=True,
+        width=True,
         config={
             "toImageButtonOptions": {
                 "format": "svg",
@@ -3611,7 +3611,7 @@ def show_combined_industry_job_recovery_chart(bay_area_series_mapping, us_series
             return 'color: green'
 
     styled_summary = summary_df.style.map(color_percent, subset=['Percent Change'])
-    st.dataframe(styled_summary, use_container_width=True, hide_index=True)
+    st.dataframe(styled_summary, width=True, hide_index=True)
 
 
 def show_sonoma_combined_industry_job_recovery_chart(sonoma_mapping, us_series_mapping, BLS_API_KEY):
@@ -3906,7 +3906,7 @@ def show_sonoma_combined_industry_job_recovery_chart(sonoma_mapping, us_series_m
 
     st.plotly_chart(
         fig,
-        use_container_width=True,
+        width=True,
         config={
             "toImageButtonOptions": {
                 "format": "svg",
@@ -3943,7 +3943,7 @@ def show_sonoma_combined_industry_job_recovery_chart(sonoma_mapping, us_series_m
             return 'color: green'
 
     styled_summary = summary_df.style.map(color_percent, subset=['Percent Change'])
-    st.dataframe(styled_summary, use_container_width=True, hide_index=True)
+    st.dataframe(styled_summary, width=True, hide_index=True)
 
 
 
@@ -4214,7 +4214,7 @@ def show_office_tech_recovery_chart(office_metros_mapping, BLS_API_KEY):
 
     st.plotly_chart(
         fig,
-        use_container_width=True,
+        width=True,
         config={
             "toImageButtonOptions": {
                 "format": "svg",
@@ -4253,7 +4253,7 @@ def show_office_tech_recovery_chart(office_metros_mapping, BLS_API_KEY):
             return 'color: green'
 
     styled_summary = summary_df.style.map(color_percent, subset=['Percent Change'])
-    st.dataframe(styled_summary, use_container_width=True, hide_index=True)
+    st.dataframe(styled_summary, width=True, hide_index=True)
 
 
 
@@ -4721,7 +4721,7 @@ def show_jobs_ratio_chart():
 
     st.plotly_chart(
             fig, 
-            use_container_width=True,
+            width=True,
             config={
                 "toImageButtonOptions": {
                     "format": "svg",
@@ -4800,7 +4800,7 @@ def show_jobs_ratio_chart():
     # Apply styling to change columns
     change_columns = [col for col in summary_df.columns if 'Change' in col]
     styled_summary = summary_df.style.map(color_change, subset=change_columns)
-    st.dataframe(styled_summary, use_container_width=True, hide_index=True)
+    st.dataframe(styled_summary, width=True, hide_index=True)
 
 
 def show_metro_population_change_chart(
@@ -4997,7 +4997,7 @@ def show_metro_population_change_chart(
 
     st.plotly_chart(
             fig, 
-            use_container_width=True,
+            width=True,
             config={
                 "toImageButtonOptions": {
                     "format": "svg",
@@ -5030,7 +5030,7 @@ def show_metro_population_change_chart(
     def color_percent(val):
         return 'color: red' if isinstance(val, str) and '-' in val else 'color: green'
     st.dataframe(out.style.map(color_percent, subset=["Percent Change"]),
-                 use_container_width=True, hide_index=True)
+                 width=True, hide_index=True)
 
     st.download_button(
         "Download Data (CSV)",
@@ -5198,7 +5198,7 @@ def show_median_1br_rent_change_chart(
 
     st.plotly_chart(
             fig, 
-            use_container_width=True,
+            width=True,
             config={
                 "toImageButtonOptions": {
                     "format": "svg",
@@ -5367,7 +5367,7 @@ def show_avg_housing_permits_chart(
 
     st.plotly_chart(
             fig, 
-            use_container_width=True,
+            width=True,
             config={
                 "toImageButtonOptions": {
                     "format": "svg",
